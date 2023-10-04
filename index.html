@@ -29,12 +29,23 @@
                 </div>
             </div>
             <!-- weather output -->
-            <div class="col-md-9 order-md-2 order-2">
-
+            <div class="col-md-9 order-md-2 order-2" id = "forcast-card">
+                <div class="card m-3">
+                    <div class="card-title px-3 py-1 title" id="city-title"></div>
+                    <ul class="list-group">
+                        <li class="list-group-item px-3 border-0" id="today-symbol">
+                            <img id="weather-icon" src="">
+                        </li>
+                        <li class="list-group-item px-3 border-0" id="today-temp">Temp: </li>
+                        <li class="list-group-item px-3 border-0" id="today-wind">Wind: </li>
+                        <li class="list-group-item px-3 border-0" id="today-hum">Humidity: </li>
+                </ul>
+            </div>
             </div>
         </div>
     </div>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-<script src="./assets/js/script.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="./assets/index.js"></script>
 </body>
 </html>
