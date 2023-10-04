@@ -26,18 +26,30 @@ async function fetchForecast(city) {
     }
 }
 function runForecast(data) {
-    // pull variables from parsed json
+    // pull variables from parsed json for date and city name
     var city = data.city.name;
     var dataObj = data.list[0];
     var dateOutput = dataObj.dt * 1000;
     var dateObj = new Date(dateOutput).toDateString();
+
+    //output pass for city name
     $('#city-title').text(city+', '+dateObj);
-    var currentTemp = dataObj.main.temp;
+
+    //pull variables for current weather
+    var tempTemp = dataObj.main.temp;
+    var currentTemp = convertTemp(tempTemp);
     var currentHumi = dataObj.main.humidity;
     var currentWind = dataObj.wind.speed;
+
     // pass weather data to html
     $('#today-temp').text('Temp: '+currentTemp+'°F');
     $('#today-wind').text('Wind: '+currentWind+'mph');
     $('#today-hum').text('Humidity: '+currentHumi+'%');
     // icon url display
 };
+//converts temperature from Kelvin to F
+function convertTemp(temperature) {
+    const fTemp = (temperature - 273.15) * 9/5 + 32;
+    // cut off at tenth decimal
+    return fTemp.toFixed(1);
+  }
